@@ -1,0 +1,96 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <main>
+        <section>
+              {{> title data="JavaScript" }}
+             <div>
+                <p>{{description}} </p>
+                <p>{{history.year}} </p>
+                <p>{{history.founder}} </p>
+            </div>
+            <div>
+                <ul>
+                {{#each types}}
+                    <li>{{this}} </li>
+                {{/each}}
+                </ul>
+            </div>
+            <hr>
+            <div>
+                <p><strong>Syntax</strong></p>
+                {{#with syntax}}
+                    <em>Variables</em>
+                    <br>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-danger">{{variables.[0]}} </button>
+                        <button type="button" class="btn btn-warning">{{variables.[1]}}</button>
+                        <button type="button" class="btn btn-success">{{variables.[2]}}</button>
+                    </div>
+                    <br>
+                    <em>Conditionals</em>
+                    <br>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-danger">{{conditionals.[0]}} </button>
+                        <button type="button" class="btn btn-warning">{{conditionals.[1]}}</button>
+                        <button type="button" class="btn btn-success">{{conditionals.[2]}}</button>
+                    </div>
+                    <br>
+                    <em>Loops</em>
+                    <br>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-danger">{{loops.[0]}} </button>
+                        <button type="button" class="btn btn-warning">{{loops.[1]}}</button>
+                        <button type="button" class="btn btn-success">{{loops.[2]}}</button>
+                    </div>
+                    <br>
+                    <em>Functions</em>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-danger">{{functions}} </button>
+                    </div>
+                    <em>Classes</em>
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-warning">{{classes}} </button>
+                    </div>
+                {{/with}}
+                <br>
+                <hr>
+                <div>
+                    <p><em>Features</em></p>
+                    <ul>
+                        {{#each features}}
+                            <li>{{this}} </li>
+                        {{/each}}
+                    </ul>
+                    <p><em>Libraries</em></p>
+                    <ul>
+                        {{#each libraries}}
+                        <li>{{this}} </li>
+                        {{/each}}
+                    </ul>
+                    <p><em>Tools</em></p>
+                    <ul>
+                        {{#each tools}}
+                            <li>{{this}} </li>
+                        {{/each}}
+                    </ul>
+                    <ul\>
+                        {{#each community}}
+                            <button type="button" class="btn btn-link">{{name}}</button> 
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
