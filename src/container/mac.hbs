@@ -1,0 +1,96 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <main>
+        <section>
+            {{> title data="Apple MacBook Pro" }}
+            <div> 
+                <p>{{description}} </p>
+                <p><strong>Price: {{price}} </strong></p>
+                <p>{{category}}</p>
+             </div>
+             <hr>
+             <div>
+                <h5>Features</h5>
+                <br>
+                {{#with features}}
+                    <p>Processor</p>
+                    {{#with processor}}
+                        <p> Brand: {{brand}} </p>
+                        <p> Model: {{model}} </p>
+                        <p> Mpeed: {{speed}} </p>
+                        <p> Cores: {{cores}} </p>
+                        <p> Cache: {{cache}} </p>
+                    {{/with}}
+                    <hr>
+                    {{#with memory}}
+                        <p>Memory: {{type}}, {{size}}, {{speed}} </p>
+                    {{/with}}
+                    <hr>
+                    {{#with storage}}
+                        <p>Storage: {{type}}, {{size}} </p>
+                    {{/with}}
+                    <hr>
+                    <p>Display</p>
+                    {{#with display}}
+                        <p> Size: {{size}} </p>
+                        <p> Resolution: {{resolution}} </p>
+                        <p> Technology: {{technology}} </p>
+                        <p> Color space: {{color_space}} </p>
+                        <p> Brightness: {{brightness}} </p>
+                        <p> Refresh rate: {{refresh_rate}}</p>
+                    {{/with}}
+                    <hr>
+                     <p>Graphics</p>
+                    {{#with graphics}}
+                        <p> brand: {{brand}} </p>
+                        <p> model: {{model}} </p>
+                        <p> memory: {{memory}} </p>
+                    {{/with}}
+                    <hr>
+                    <div>
+                        {{#each ports}} 
+                            <p>Ports: {{type}}, count-{{count}}</p>
+                             <ul>  
+                                {{#each features}}
+                                    <li>{{this}} </li>
+                                {{/each}}
+                            </ul> 
+                        {{/each}} 
+                    </div>
+                    <hr>
+                    <div>
+                        {{#with battery}}
+                            <p> type: <button type="button" class="btn btn-outline-info">{{type}}</button></p>
+                            <p> capacity: <button type="button" class="btn btn-outline-info">{{capacity}}</button></p>
+                            <p> life: <button type="button" class="btn btn-outline-info">{{life}}</button></p>
+                        {{/with}}
+                        <p>Weight <button type="button" class="btn btn-outline-info">{{weight}}</button></p>
+                        <p>Dimensions: </p>
+                        {{#with dimensions}}
+                            <p> height: <button type="button" class="btn btn-outline-info">{{height}}</button></p>
+                            <p> width: <button type="button" class="btn btn-outline-info">{{width}}</button></p>
+                            <p> depth: <button type="button" class="btn btn-outline-info">{{depth}}</button></p>
+                        {{/with}}
+                        <p>Operating system {{operating_system}} </p>
+                        <ul>
+                            {{#each accessories}}
+                                <p>Accessories</p>
+                                <li>{{name}} (price: {{price}})</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                {{/with}}
+             </div>
+
+        </section>
+    </main>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
