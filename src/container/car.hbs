@@ -1,0 +1,100 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <main>
+        <section>
+              {{> title data="Toyota" }}
+             <div>
+                <p>{{model}}, {{color}} ({{year}}) </p>
+            </div>
+            <hr>
+            <div>
+                <p><em>Interior</em></p>
+                {{#with features.interior.seats}}
+                    <p>Seats: {{material}} - {{color}} </p>
+                    <p>{{#if heated}} Heated {{/if}}</p>
+                    <p>{{#if ventilated}} Ventilated {{/if}}</p>
+                {{/with}}
+                <hr>
+                {{#with features.interior.dashboard}}
+                    <p><em>Dashboard:</em> {{material}} - {{color}} </p>
+                    {{#with display}}
+                        <p>Display: {{type}}, {{size}}, {{resolution}}</p> 
+                        <p>{{#if touchscreen}} Touchscreen {{/if}}</p>
+                    {{/with}}
+                {{/with}}
+                <hr>
+                {{#with features.interior.audio}}
+                    <p><em>Audio: {{system}}, {{speakers}} </em></p>
+                    <p>{{#if subwoofer}} Subwoofer {{/if}}</p>
+                    <p>{{#if bluetooth}} Bluetooth {{/if}}</p>
+                    <p>{{#if USB}} USB {{/if}}</p>
+                {{/with}}
+            </div>
+            <hr>
+            <div>
+                <p><em>Exterior</em></p>
+                {{#with features.exterior}}
+                    <p>Wheels: {{wheels.size}}, {{wheels.type}}, {{wheels.color}} </p>
+                    <p>Headlights: {{headlights.type}}, {{headlights.brightness}}, {{headlights.automatic}}  </p>
+                    <p>Sunroof: {{sunroof.type}}, {{sunroof.size}}, {{sunroof.automatic}} </p>
+                {{/with}}
+                <hr>
+                {{#with features.safety}}
+                    <p><em>Safety (Airbags)</em></p>
+                    <p>Front: {{airbags.front}}</p>
+                    <p>Side: {{airbags.side}}</p>
+                    <p>Knee: {{airbags.knee}}</p>
+                    <p>Rear: {{airbags.rear}}</p>
+                    <hr>
+                    <p><em>Safety (Assistance)</em></p>
+                    <p>{{#if assistance.blind_spot_monitoring}} Blind spot monitoring {{/if}}</p>
+                    <p>{{#if assistance.rear_cross_traffic_alert}} Rear cross traffic alert {{/if}}</p>
+                    <p>{{#if assistance.lane_departure_warning}} Lane Departure Warning {{/if}}</p>
+                    <p>{{#if assistance.adaptive_cruise_control}} Adaptive cruise control {{/if}}</p>
+                    <p>{{#if assistance.collision_warning}} Collision warning {{/if}}</p>
+                {{/with}}
+            </div>
+            <hr>
+            <div>
+                <p><em>Engine</em></p>
+                {{#with engine}}
+                    <p>Type: {{type}}</p>
+                    <p>Displacement: {{displacement}}</p>
+                    <p>Horsepower: {{horsepower}}</p>
+                    <p>Torque: {{torque}}</p>
+                    <p>Transmission: {{transmission.type}}, {{transmission.gears}} </p>
+                {{/with}}
+            </div>
+            <hr>
+            <div>
+                <p><em>Fuel economy</em></p>
+                {{#with fuel_economy}}
+                    <p>City: <button type="button" class="btn btn-warning">{{city}} </button></p>
+                    <p>Highway: <button type="button" class="btn btn-warning">{{highway}} </button></p>
+                    <p>Combined: <button type="button" class="btn btn-warning">{{combined}} </button></p>
+                {{/with}}
+            </div>
+            <hr>
+             <div>
+                <p><strong>Price: </strong></p>
+                {{#with price}}
+                    <p>Base: <button type="button" class="btn btn-success">{{base}}</button></p>
+                    <p>Destination: <button type="button" class="btn btn-success">{{destination}}</button></p>
+                    <p>Navigation: <button type="button" class="btn btn-outline-success">{{options.navigation}}</button></p>
+                    <p>Moonroof: <button type="button" class="btn btn-outline-success">{{options.moonroof}}</button></p>
+                    <p>Premium paint: <button type="button" class="btn btn-outline-success">{{options.premium_paint}}</button></p>
+                    <p><strong>Total: <button type="button" class="btn btn-success">{{total}}</button></strong></p>
+                {{/with}}
+            </div>
+        </section>
+    </main>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
