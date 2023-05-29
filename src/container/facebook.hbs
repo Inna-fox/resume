@@ -24,11 +24,30 @@
                                 {{#each mutual_friends}}
                                     {{>id}}
                                     <br>
+                                    <ul>
+                                        {{#each mutual_friends}}
+                                            {{>id}}
+                                        {{/each}}
+                                     </ul>
                                 {{/each}}
-                                <br>
                             </ul>
                             <br>
                             <hr>
+                            <ul>
+                                {{#each groups}}
+                                    <li>id <button type="button" class="btn btn-success">{{id}}</button></li>
+                                    <li>{{name}}</li>
+                                    <li>{{description}} </li>
+                                    <br>
+                                    <p>Members</p>
+                                    <ul>
+                                        {{#each members}}
+                                            {{>id}}
+                                            <br>
+                                        {{/each}}
+                                    </ul>
+                                {{/each}}
+                            </ul>
                         {{/each}}
                     </ul>
                     <br>
