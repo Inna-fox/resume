@@ -1901,7 +1901,7 @@ router.get('/shoporder', function (req, res) {
           ],
         },
         friend_coupon: {
-          label: 'Купони для запрошених друзів',
+          label: 'Купони  запрошених друзів',
           placeholder: 'Виберіть купон',
           options: [
             { value: '1', text: 'TRAVEL5' },

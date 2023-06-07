@@ -5,7 +5,8 @@
 
 <div>
     <main>
-        <div class="card my-4">
+        <div class="row">
+            <div class="card my-4">
             {{#with navigation}}
                 <div class="nav">
                     {{#each links}}
@@ -19,66 +20,62 @@
                     {{/each}}
                 </div>
             {{/with}}
-        </div>
-        <div class="row">
+            </div>
             <h1 class="col-8 m-5">{{header}}</h1>
-            {{#with contacts_data}}
-                <h2 class="col-8 m-3">{{title}}</h2>
-                <div class="col-8">
-                {{#each buttons}}
-                    <button class="btn {{#if isPrimary}} btn-warning {{/if}} {{#if isOutline}} btn-outline-warning {{/if}}">{{text}}</button>
-                {{/each}}
-                </div>
-            {{/with}}
             <div class="col-8">
                 {{#with contacts_data}}
+                    <h2 class="col-8 m-3">{{title}}</h2>
+                    {{#each buttons}}
+                        <button class="btn {{#if isPrimary}} btn-warning {{/if}} {{#if isOutline}} btn-outline-warning {{/if}}">{{text}}</button>
+                    {{/each}}
                     {{#with form}}
                         {{#with input}}
-                            <div class="col-4 p-3">
-                                {{#with surname}}
-                                    <label class="form-label">{{label}}</label>
-                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                    <div class="form-text">{{caption}}</div>
-                                {{/with}}
-                            </div>
-                            <div class="col-4 p-3">
-                                {{#with name}}
-                                    <label class="form-label">{{label}}</label>
-                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                    <div class="form-text">{{caption}}</div>
-                                {{/with}}
-                            </div>
-                            <div class="col-4 p-3">
-                                {{#with phone}}
-                                    <label class="form-label">{{label}}</label>
-                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                    <div class="form-text">{{caption}}</div>
-                                {{/with}}
-                            </div>
-                            <div class="col-4 p-3">
-                                {{#with email}}
-                                    <label class="form-label">{{label}}</label>
-                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                    <div class="form-text">{{caption}}</div>
-                                {{/with}}
+                            <div class="row">
+                                <div class="col-5 m-3">
+                                    {{#with surname}}
+                                        <label class="form-label">{{label}}</label>
+                                        <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                        <div class="form-text">{{caption}}</div>
+                                    {{/with}}
+                                </div>
+                                <div class="col-5 m-3">
+                                    {{#with name}}
+                                        <label class="form-label">{{label}}</label>
+                                        <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                        <div class="form-text">{{caption}}</div>
+                                    {{/with}}
+                                </div>
+                                <div class="col-5 m-3">
+                                    {{#with phone}}
+                                        <label class="form-label">{{label}}</label>
+                                        <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                        <div class="form-text">{{caption}}</div>
+                                    {{/with}}
+                                </div>
+                                <div class="col-5 m-3">
+                                    {{#with email}}
+                                        <label class="form-label">{{label}}</label>
+                                        <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                        <div class="form-text">{{caption}}</div>
+                                    {{/with}}
+                                </div>
                             </div>
                         {{/with}}
                         <hr>
-                        <div class="col-8">  
-                            {{#each switch}}    
-                                <div class="form-control form-switch">
-                                    {{#if isActive}}
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked">{{text}}</label>
-                                        {{else}}
-                                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">{{text}}</label>
-                                    {{/if}}
-                                </div>
-                            {{/each}}
-                        </div>  
+                        {{#each switch}}    
+                            <div class="form-control form-switch">
+                                {{#if isActive}}
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">{{text}}</label>
+                                    {{else}}
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">{{text}}</label>
+                                {{/if}}
+                            </div>
+                        {{/each}}
                     {{/with}} 
                 {{/with}}
+                <hr>
             </div>
             <div class="col-4">
                 <div class="card">
@@ -112,23 +109,24 @@
                     {{/with}}
                 </div>
             </div>
-            <div class="col-8">
-                <hr>
-                {{#with delivery}}
+            {{#with delivery}}
+                <div class="col-8">
                     <h2>{{title}} </h2>
-                    <div class="card m-3">
-                        {{#each select}}
-                            <div class="card-body col-6">
-                                <label class="form-label">{{label}}</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>{{placeholder}}</option>
-                                    {{#each options}}
-                                        <option value="{{value}}">{{text}}</option>
-                                    {{/each}}
-                                </select>
-                            </div>
-                        {{/each}}
-                    </div>
+                        <div class="card">
+                            {{#each select}}
+                                <div class="card-body">
+                                    <div class="col-5">
+                                        <label class="form-label">{{label}}</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>{{placeholder}}</option>
+                                            {{#each options}}
+                                                <option value="{{value}}">{{text}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
                     {{#each delivery_type}}
                         <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault" checked>
@@ -149,33 +147,35 @@
                     <hr>
                     {{#with contact}}
                         <h2>{{title}}</h2>
-                        <div class="col-4 m-3">
-                            {{#with surname}}
-                                <label class="form-label">{{label}}</label>
-                                <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                <div class="form-text">{{caption}}</div>
-                            {{/with}}
-                        </div>
-                        <div class="col-4 m-3">
-                            {{#with name}}
-                                <label class="form-label">{{label}}</label>
-                                <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                <div class="form-text">{{caption}}</div>
-                            {{/with}}
-                        </div>
-                        <div class="col-4 m-3">
-                            {{#with phone}}
-                                <label class="form-label">{{label}}</label>
-                                <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                <div class="form-text">{{caption}}</div>
-                            {{/with}}
-                        </div>
-                        <div class="col-4 m-3">
-                            {{#with email}}
-                                <label class="form-label">{{label}}</label>
-                                <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
-                                <div class="form-text">{{caption}}</div>
-                            {{/with}}
+                        <div class="row">
+                            <div class="col-5 m-3">
+                                {{#with surname}}
+                                    <label class="form-label">{{label}}</label>
+                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                    <div class="form-text">{{caption}}</div>
+                                {{/with}}
+                            </div>
+                            <div class="col-5 m-3">
+                                {{#with name}}
+                                    <label class="form-label">{{label}}</label>
+                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                    <div class="form-text">{{caption}}</div>
+                                {{/with}}
+                            </div>
+                            <div class="col-5 m-3">
+                                {{#with phone}}
+                                    <label class="form-label">{{label}}</label>
+                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                    <div class="form-text">{{caption}}</div>
+                                {{/with}}
+                            </div>
+                            <div class="col-5 m-3">
+                                {{#with email}}
+                                    <label class="form-label">{{label}}</label>
+                                    <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
+                                    <div class="form-text">{{caption}}</div>
+                                {{/with}}
+                            </div>
                         </div>
                     {{/with}}
                     <hr>
@@ -183,8 +183,8 @@
                         <label class="form-label">{{label}}</label>
                         <input class="form-control" placeholder="{{placeholder}}" aria-label="{{placeholder}}">
                     {{/with}}
-                {{/with}}
-            </div>
+                </div>
+            {{/with}}
             <div class="col-8"> 
                 {{#with coupon}}
                     <h2 class="m-3">{{title}}</h2>
@@ -259,9 +259,7 @@
                     {{/with}}
                 {{/with}}
             </div>
-        </div>
-        <hr>
-        <div class="row">
+            <hr>
             {{#each footer}}
                 <ul class="nav col-2">
                     {{#each this}}
