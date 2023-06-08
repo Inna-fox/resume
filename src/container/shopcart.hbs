@@ -1,0 +1,93 @@
+{{!-- 
+Це код container файлу для summary сторінки, 
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    <main>
+        <div>
+            <div class="card my-4">
+            {{#with navigation}}
+                <div class="nav">
+                    {{#each links}}
+                        <div class="nav-item">
+                            {{#if href}}
+                                <a href="{{href}}" class="nav-link">{{text}} </a>
+                                {{else}}
+                                <a href="{{href}}" class="nav-link disabled">{{text}} </a>
+                            {{/if}}
+                        </div>
+                    {{/each}}
+                </div>
+            {{/with}}
+            </div>
+            <div>
+                {{#with header}}
+                    <h1 class="my-5">{{title}}</h1>
+                    {{#with button}}
+                        <a href="{{link}}" class="btn btn-outline-secondary">{{text}}</a>
+                    {{/with}}
+                {{/with}}
+            </div>
+            <hr class="my-5">
+            {{>cartGoodsItem}}
+            <hr class="my-5">
+            {{#with total}}
+                <h4 class="my-2">{{title}}</h4>
+                <div class="display-6 my-2">{{amount}}</div>
+                <div class="text-muted my-2">{{delivery}}</div>
+                {{#each buttons}}
+                        <a href="{{link}}" class="btn {{#if isSuccess}} btn-success {{/if}} {{#if isOutline}} btn-outline-success {{/if}} my-2">{{text}}</a>
+                        <br>
+                {{/each}}
+            {{/with}}
+            <hr class="my-5">
+            {{#with goodsOtherBlock}}
+                <h3 class="my-4 text-center">{{title}}</h3>
+                <div class="row">
+                    {{#each cards}}
+                        <div class="col-4">
+                            <div class="card">
+                                <img src="{{image}}" class="card-img-top" alt="{{title}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{title}}
+                                        {{#if isHot}}<span class="badge text-bg-danger rounded-pill">Hot</span>{{/if}}
+                                        {{#if idNew}}<span class="badge text-bg-info rounded-pill">New</span>{{/if}}
+                                    </h5>
+                                    <p class="card-text">{{description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/with}}
+            <hr class="my-5">
+            <div class="card text-bg-dark">
+                {{#with subscribe}}
+                    <h2 class="m-3">{{header}}</h2>
+                    <p class="m-2">{{description}}</p>
+                    {{#each buttons}}
+                        <a href="{{link}}" class="btn btn-primary m-2 col-2">{{text}}</a>
+                    {{/each}}
+                {{/with}}
+            </div>
+            <hr class="my-5">
+            <div class="row">
+                {{#each footer}}
+                    <ul class="nav col-2">
+                        {{#each this}}
+                            <li class="nav-item flex-column">
+                                <a href="{{link}}" class="nav-link {{#if @last}}disabled{{/if}}">{{text}} </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/each}}
+            </div>
+        </div>
+    </main>
+</div>
+
+{{!-- 
+    Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+    Адже наш layout/default.hbs має вже структуру HTML
+--}}
